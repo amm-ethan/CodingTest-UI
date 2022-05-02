@@ -1,0 +1,41 @@
+﻿@page "/"
+
+<MudGrid>
+    <MudItem xs="12">
+        <MudPaper Elevation="5" Style="height:300px;overflow:scroll;">
+            <InputFile id="fileInput112" OnChange="OnInputFileChanged" accept=".csv,.xml" hidden />
+            @if (!haveFile)
+            {
+                <MudButton HtmlTag="label" Class="mt-16 ml-2 d-flex" Variant="Variant.Text" Color="Color.Primary" StartIcon="@Icons.Filled.CloudUpload" for="fileInput112">
+                    Click to Upload
+                </MudButton>
+            }
+            else
+            {
+                <MudList Style="padding:2em;width:100%;" Dense="true">
+                    <MudGrid>
+                        <MudItem xs="4">
+                            <MudText Style="overflow: hidden;text-overflow:ellipsis;">@FileName</MudText>
+                        </MudItem>
+                        <MudItem xs="7">
+                            <MudProgressLinear Color="Color.Primary" Value="@ProgressValue" Class="my-6" />
+                        </MudItem>
+                        <MudItem xs="1" Class="d-flex align-self-center">
+                            <MudText Color="Color.Primary" style="overflow: hidden;text-overflow:ellipsis;">@ProgressValue%</MudText>
+                        </MudItem>
+                    </MudGrid>
+                    <MudListItem>
+                        <MudGrid Class="mt-2">
+                            <MudItem xs="6">
+                                <MudButton Variant="Variant.Filled" FullWidth="true" Class="mr-2" OnClick="OnUpload" Color="Color.Primary">Upload</MudButton>
+                            </MudItem>
+                            <MudItem xs="6">
+                                <MudButton Variant="Variant.Outlined" FullWidth="true" OnClick="Clear" Color="Color.Dark">Clear</MudButton>
+                            </MudItem>
+                        </MudGrid>
+                    </MudListItem>
+                </MudList>
+            }
+        </MudPaper>
+    </MudItem>
+</MudGrid>
