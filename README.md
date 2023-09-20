@@ -1,5 +1,5 @@
 # Readme
-This is repo of Coding Test (UI) for 2P2C Company.
+This is repo of Coding Test (UI).
 
 # Built With
 - .Net Core 6
